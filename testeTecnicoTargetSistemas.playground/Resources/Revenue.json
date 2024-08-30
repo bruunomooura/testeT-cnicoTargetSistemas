@@ -1,0 +1,122 @@
+    [
+        {
+            "day": 1,
+            "revenue": 2000
+        },
+        {
+            "day": 2,
+            "revenue": 0
+        },
+        {
+            "day": 3,
+            "revenue": 3000
+        },
+        {
+            "day": 4,
+            "revenue": 2500
+        },
+        {
+            "day": 5,
+            "revenue": 0
+        },
+        {
+            "day": 6,
+            "revenue": 3500
+        },
+        {
+            "day": 7,
+            "revenue": 4000
+        },
+        {
+            "day": 8,
+            "revenue": 0
+        },
+        {
+            "day": 9,
+            "revenue": 1500
+        },
+        {
+            "day": 10,
+            "revenue": 2000
+        },
+        {
+            "day": 11,
+            "revenue": 1700
+        },
+        {
+            "day": 12,
+            "revenue": 0
+        },
+        {
+            "day": 13,
+            "revenue": 2200
+        },
+        {
+            "day": 14,
+            "revenue": 2400
+        },
+        {
+            "day": 15,
+            "revenue": 0
+        },
+        {
+            "day": 16,
+            "revenue": 3300
+        },
+        {
+            "day": 17,
+            "revenue": 3100
+        },
+        {
+            "day": 18,
+            "revenue": 0
+        },
+        {
+            "day": 19,
+            "revenue": 2800
+        },
+        {
+            "day": 20,
+            "revenue": 2500
+        },
+        {
+            "day": 21,
+            "revenue": 3000
+        },
+        {
+            "day": 22,
+            "revenue": 0
+        },
+        {
+            "day": 23,
+            "revenue": 3500
+        },
+        {
+            "day": 24,
+            "revenue": 3700
+        },
+        {
+            "day": 25,
+            "revenue": 0
+        },
+        {
+            "day": 26,
+            "revenue": 3200
+        },
+        {
+            "day": 27,
+            "revenue": 2800
+        },
+        {
+            "day": 28,
+            "revenue": 3000
+        },
+        {
+            "day": 29,
+            "revenue": 0
+        },
+        {
+            "day": 30,
+            "revenue": 3100
+        }
+    ]
