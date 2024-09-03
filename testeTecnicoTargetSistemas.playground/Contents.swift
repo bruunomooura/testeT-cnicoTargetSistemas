@@ -6,15 +6,15 @@ import Foundation
  Função que calcula a soma dos números inteiros de 1 até um índice especificado.
  A variável `indice` define o limite superior, e a variável `soma` acumula a soma dos números.
  */
-private let indice: Int = 13
-private var soma: Int = 0
+private let index: Int = 13
+private var sum: Int = 0
 private var k: Int = 0
 
-while k < indice {
+while k < index {
     k += 1
-    soma += k
+    sum += k
 }
-print("Sum is equal to: \(soma)")
+print("A soma é igual a: \(sum)")
 
 // MARK: - Item 2
 
@@ -25,12 +25,12 @@ print("Sum is equal to: \(soma)")
  
  - Parameter value: O número a ser verificado.
  */
-func checkValueBelongsToFibonacci(value: Int) {
+private func checkValueBelongsToFibonacci(value: Int) {
     var a: Int = 0
     var b: Int = 1
     
     if value == a || value == b {
-        print("The number \(value) belongs to the Fibonacci sequence.")
+        print("O número \(value) pertence à sequência de Fibonacci.")
         return
     }
     while b < value {
@@ -40,11 +40,11 @@ func checkValueBelongsToFibonacci(value: Int) {
         b = nextValue
         
         if b == value {
-            print("The number \(value) belongs to the Fibonacci sequence.")
+            print("O número \(value) pertence à sequência de Fibonacci.")
             return
         }
     }
-    print("The number \(value) does not belong to the Fibonacci sequence.")
+    print("O número \(value) não pertence à sequência de Fibonacci.")
 }
 
 checkValueBelongsToFibonacci(value: 21)
@@ -58,6 +58,11 @@ checkValueBelongsToFibonacci(value: 21)
 struct DailyRevenue: Decodable {
     let day: Int
     let revenue: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case day = "dia"
+        case revenue = "valor"
+    }
 }
 
 /**
@@ -66,7 +71,7 @@ struct DailyRevenue: Decodable {
  
  - Parameter revenue: Um array de `DailyRevenue` representando os dados de faturamento diário.
  */
-func calculateRevenueStatistics(revenue: [DailyRevenue]) {
+private func calculateRevenueStatistics(revenue: [DailyRevenue]) {
     let revenueValidDays = revenue.filter { $0.revenue > 0 }
     
     guard !revenueValidDays.isEmpty else {
@@ -82,9 +87,16 @@ func calculateRevenueStatistics(revenue: [DailyRevenue]) {
     
     let daysRevenueAboveAverage = revenueValidDays.filter { $0.revenue > averageMonthlyRevenue }.count
     
-    print("The lowest billing amount occurred on a day of the month was \(lowestRevenueOfTheMonth)")
-    print("The highest billing amount occurred on a day of the month was \(highestRevenueOfTheMonth)")
-    print("Number of days in the month in which the daily billing amount was higher than the monthly average \(daysRevenueAboveAverage)")
+    print("O menor valor de faturamento ocorrido em um dia do mês foi \(formatAsCurrency(lowestRevenueOfTheMonth))")
+    print("O maior valor de faturamento ocorrido em um dia do mês foi \(formatAsCurrency(highestRevenueOfTheMonth))")
+    print("Número de dias no mês em que o valor de faturamento diário foi superior à média mensal: \(daysRevenueAboveAverage)")
+}
+
+private func formatAsCurrency(_ value: Double) -> String {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    formatter.locale = Locale(identifier: "pt_BR")
+    return formatter.string(from: NSNumber(value: value)) ?? "R$ 0,00"
 }
 
 /**
@@ -101,7 +113,7 @@ enum JSONFile: String {
  
  - Parameter completion: Um closure que é chamado com o resultado da leitura e decodificação dos dados.
  */
-func readAndProcessTheRevenueData(completion: @escaping (Result<[DailyRevenue], any Error>) -> Void) {
+private func readAndProcessTheRevenueData(completion: @escaping (Result<[DailyRevenue], any Error>) -> Void) {
     guard let url = Bundle.main.url(forResource: JSONFile.revenueData.rawValue, withExtension: JSONFile.json.rawValue) else {
         print("Unable to find the file.")
         return
@@ -144,7 +156,7 @@ let revenueDataByState: [String : Double] = [
 /**
  Função que calcula e imprime a porcentagem de representação do faturamento de cada estado no faturamento total da distribuidora.
  */
-func calculateTheRepresentationOfTheStatesRevenue() {
+private func calculateTheRepresentationOfTheStatesRevenue() {
     let totalRevenue = revenueDataByState.values.reduce(0) { $0 + $1 }
     
     for (state, revenue) in revenueDataByState {
@@ -163,7 +175,7 @@ calculateTheRepresentationOfTheStatesRevenue()
  - Parameter string: A string original que será invertida.
  - Returns: A string com os caracteres invertidos.
  */
-func reverseStringCharacters(_ string: String) -> String {
+private func reverseStringCharacters(_ string: String) -> String {
     let characters = Array(string)
     var reversedString: String = .init()
     
